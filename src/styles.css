@@ -744,4 +744,36 @@ body.modal-open {
   .app-footer {
     padding-bottom: max(20px, env(safe-area-inset-bottom));
   }
+
+  /* ФИКС ЗУМА НА МОБИЛЬНЫХ */
+@media (max-width: 768px) {
+  /* Предотвращаем зум iOS */
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  
+  /* Увеличиваем ячейки календаря */
+  .day {
+    min-height: 50px;
+    font-size: 16px;
+    touch-action: manipulation;
+  }
+  
+  .day-number {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  /* Отключаем выделение при тапе */
+  .day {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Улучшаем feedback при клике */
+  .day:active {
+    transform: scale(0.98);
+    transition: transform 0.1s;
+  }
+}
 }
