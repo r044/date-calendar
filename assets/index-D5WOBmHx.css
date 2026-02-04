@@ -4,3 +4,34 @@
   .calendar-grid { grid-auto-rows: 1fr !important; }
   .day { aspect-ratio: 1/1 !important; }
 }
+
+/* ФИКС: ВСЕ ЯЧЕЙКИ ОДИНАКОВОГО РАЗМЕРА */
+@media (max-width: 768px) {
+  .day {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important;
+    padding: 5px !important;
+  }
+  
+  .day::before {
+    content: '';
+    float: left;
+    padding-top: 100%; /* создаем квадрат */
+  }
+  
+  .day-header,
+  .day-events {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Все цифры одинаковые */
+  .day-number {
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    display: inline-block;
+    width: 20px;
+    text-align: center;
+  }
+}
